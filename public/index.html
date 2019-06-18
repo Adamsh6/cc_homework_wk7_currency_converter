@@ -3,12 +3,35 @@
   <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Web App</title>
+	<title>Currency Translator</title>
   <link rel="stylesheet" href="./css/main.css">
   <script src="./js/bundle.js"></script>
 </head>
 <body>
   <div id="app">
-    {{testData}}
+    
+    <h2>Euro's to other currency</h2>
+    <input type="number" v-model="fromEuroAmount" />
+    <select v-model="fromEuroRate">
+      <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
+    </select>
+    <span>{{convertedFromEuros | twoDPs}}</span>
+
+    <h2>Currency to Euro's</h2>
+    <input type="number" v-model="toEuroAmount" />
+    <select v-model="toEuroRate">
+      <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
+    </select>
+    <span>{{convertedToEuros | twoDPs}}</span>
+
+    <h2>Non-base to non-base currencies</h2>
+    <input type="number" v-model="nonBaseAmount" />
+    <select v-model="nonBaseFromRate">
+      <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
+    </select>
+    <span>{{nonBaseConversion | twoDPs}}</span>
+    <select v-model="nonBaseToRate">
+      <option v-for="(rate, currency) in rates" :value="rate">{{currency}}</option>
+    </select>
   </div>
 </body>
