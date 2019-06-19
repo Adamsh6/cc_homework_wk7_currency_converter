@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return this.fromEuroAmount * this.fromEuroRate
       },
       convertedToEuros: function(){
-        return this.toEuroAmount * this.toEuroRate
+        return this.toEuroAmount / this.toEuroRate
       },
       nonBaseConversion: function(){
         return (this.nonBaseAmount / this.nonBaseFromRate) * this.nonBaseToRate
